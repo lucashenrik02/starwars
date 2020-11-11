@@ -68,11 +68,7 @@ public class MainActivity extends AppCompatActivity {
                           Log.i(TAG, "eye_color: " + people.getEye_color());
                           Log.i(TAG, "height: " + people.getHeight());
                           Log.i(TAG, "homeworld: " + people.getHomeworld());
-
-
-
-
-                    }
+                   }
 
                 } else{
                     Log.e(TAG, "onResponse: " + response.errorBody());

@@ -7,34 +7,30 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-import androidx.recyclerview.widget.RecyclerView;
-
 import com.example.starwars.Models.StarWars;
 import com.example.starwars.R;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class ListaStarWarsAdapter extends BaseAdapter {
 
-    private ArrayList<StarWars> dataset;
-    private Context context;
+    private final Context context;
+    private final List<StarWars> people;
 
-    public ListaStarWarsAdapter(List<StarWars> people, Context context) {
-        this.dataset = dataset;
+    public ListaStarWarsAdapter(Context context, List<StarWars> people) {
         this.context = context;
-        dataset = new ArrayList<>();
+        this.people = people;
     }
 
 
     @Override
     public int getCount() {
-        return this.dataset != null ? this.dataset.size() : 0;
+        return this.people != null ? this.people.size() : 0;
     }
 
     @Override
     public StarWars getItem(int i) {
-        return this.dataset.get(i);
+        return this.people.get(i);
     }
 
     @Override
@@ -50,7 +46,7 @@ public class ListaStarWarsAdapter extends BaseAdapter {
                     viewGroup, false);
         }
 
-        StarWars dataset = getItem(position);
+        StarWars people = getItem(position);
 
         TextView
                 txtItemName,
@@ -81,17 +77,17 @@ public class ListaStarWarsAdapter extends BaseAdapter {
             txtItemEdited = view.findViewById(R.id.textEdited);
 
 
-            txtItemName.setText(dataset.getName());
-            txtItemBirthYear.setText(String.valueOf(dataset.getBirth_year()));
-            txtItemEyeColor.setText(dataset.getEye_color());
-            txtItemGender.setText(dataset.getGender());
-            txtItemHairColor.setText(dataset.getHair_color());
-            txtItemHeight.setText(String.valueOf(dataset.getHeight()));
-            txtItemMass.setText(String.valueOf(dataset.getMass()));
-            txtItemSkinColor.setText(dataset.getSkin_color());
-            txtItemHomeworld.setText(dataset.getHomeworld());
-            txtItemCreated.setText(dataset.getCreated());
-            txtItemEdited.setText(dataset.getEdited());
+            txtItemName.setText(people.getName());
+            txtItemBirthYear.setText(String.valueOf(people.getBirth_year()));
+            txtItemEyeColor.setText(people.getEye_color());
+            txtItemGender.setText(people.getGender());
+            txtItemHairColor.setText(people.getHair_color());
+            txtItemHeight.setText(String.valueOf(people.getHeight()));
+            txtItemMass.setText(String.valueOf(people.getMass()));
+            txtItemSkinColor.setText(people.getSkin_color());
+            txtItemHomeworld.setText(people.getHomeworld());
+            txtItemCreated.setText(people.getCreated());
+            txtItemEdited.setText(people.getEdited());
 
         } catch (Exception e) {
             System.out.println("-- Erro ao listar, verifique com seu DEV. --");
