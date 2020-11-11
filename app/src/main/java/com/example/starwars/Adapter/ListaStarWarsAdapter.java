@@ -48,7 +48,7 @@ public class ListaStarWarsAdapter extends BaseAdapter {
 
         StarWars people = getItem(position);
 
-        TextView
+     TextView
                 txtItemName,
                 txtItemBirthYear,
                 txtItemEyeColor,
@@ -75,7 +75,6 @@ public class ListaStarWarsAdapter extends BaseAdapter {
             txtItemHomeworld = view.findViewById(R.id.textHomeworld);
             txtItemCreated = view.findViewById(R.id.textCreated);
             txtItemEdited = view.findViewById(R.id.textEdited);
-
 
             txtItemName.setText(people.getName());
             txtItemBirthYear.setText(String.valueOf(people.getBirth_year()));
