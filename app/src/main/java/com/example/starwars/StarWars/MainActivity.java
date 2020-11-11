@@ -5,8 +5,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ListView;
 
+import com.example.starwars.Adapter.ListaStarWarsAdapter;
 import com.example.starwars.Models.StarWars;
 import com.example.starwars.Models.StarWarsResposta;
 import com.example.starwars.R;
@@ -61,6 +63,13 @@ public class MainActivity extends AppCompatActivity {
                     StarWarsResposta starWarsResposta = response.body();
                     List<StarWars> listaStarWars = starWarsResposta.getResults();
 
+
+                    ListaStarWarsAdapter p = new ListaStarWarsAdapter(getApplicationContext(), listaStarWars);
+                    listViewPeople = findViewById(R.id.peopleList);
+                    listViewPeople.setAdapter(p);
+
+                    Button b = findViewById(R.id.obterDados);
+
                     for (int i = 0; i < listaStarWars.size() ; i++) {
                         StarWars people = listaStarWars.get(i);
                           Log.i(TAG, "Name: " + people.getName());
@@ -69,6 +78,8 @@ public class MainActivity extends AppCompatActivity {
                           Log.i(TAG, "height: " + people.getHeight());
                           Log.i(TAG, "homeworld: " + people.getHomeworld());
                    }
+
+
 
                 } else{
                     Log.e(TAG, "onResponse: " + response.errorBody());
